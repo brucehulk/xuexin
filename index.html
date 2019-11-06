@@ -173,7 +173,7 @@
         </div>
       </div>
     </div>
-    <button class="back">返回</button>
+    <!-- <button class="back">返回</button> -->
     <img src="images/tiaozhuan.png" class="tiaozhuan" alt="">
 
     <style>
@@ -215,17 +215,22 @@
     }
 
 
-    $('.back').click(function () {
+    // $('.back').click(function () {
+    //   $('.tiaozhuan').hide()
+    //   $('.page-wrapper').show()
+    //   $('.back').hide()
+    // })
+    $('.tiaozhuan').click(function () {
       $('.tiaozhuan').hide()
       $('.page-wrapper').show()
-      $('.back').hide()
     })
     $('.downLoad').click(function () {
       var ua = window.navigator.userAgent.toLowerCase();
       if (ua.match(/MicroMessenger/i) == 'micromessenger') {
         console.log('微信浏览器');
+        // $('.back').show()
+
         $('.tiaozhuan').show()
-        $('.back').show()
         $('.page-wrapper').hide()
       } else {
         console.log("不是微信浏览器");
