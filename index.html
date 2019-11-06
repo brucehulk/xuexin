@@ -173,20 +173,73 @@
         </div>
       </div>
     </div>
+    <button class="back">返回</button>
+    <img src="images/tiaozhuan.png" class="tiaozhuan" alt="">
 
+    <style>
+      .tiaozhuan {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .back {
+        position: absolute;
+        display: none;
+        top: 1rem;
+        left: .5rem;
+        width: 1.28rem;
+        height: 0.747rem;
+        border-radius: 0.373rem;
+        border: none;
+        color: #fff;
+        background-color: #39a5ab;
+        transition: all 0.3s;
+        z-index: 999;
+      }
+    </style>
   </div>
-
   <script>
-    $('.downLoad').click(function () {
-      let src = 'images/教育部学历证书电子注册备案表.pdf'
-      var $a = document.createElement('a');
-      $a.setAttribute("href", src);
-      $a.setAttribute("download", "");
-      var evObj = document.createEvent('MouseEvents');
-      evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
-      $a.dispatchEvent(evObj);
-    })
+    function is_weixin() {
+      var ua = window.navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+        console.log('微信浏览器');
+        return true;
+      } else {
+        console.log("不是微信浏览器");
+        return false;
+      }
+    }
 
+
+    $('.back').click(function () {
+      $('.tiaozhuan').hide()
+      $('.page-wrapper').show()
+      $('.back').hide()
+    })
+    $('.downLoad').click(function () {
+      var ua = window.navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+        console.log('微信浏览器');
+        $('.tiaozhuan').show()
+        $('.page-wrapper').hide()
+      } else {
+        $('.tiaozhuan').show()
+        $('.back').show()
+        $('.page-wrapper').hide()
+        console.log("不是微信浏览器");
+        let src = 'images/教育部学历证书电子注册备案表.pdf'
+        var $a = document.createElement('a');
+        $a.setAttribute("href", src);
+        $a.setAttribute("download", "");
+        var evObj = document.createEvent('MouseEvents');
+        evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
+        $a.dispatchEvent(evObj);
+      }
+    })
   </script>
 </body>
 
