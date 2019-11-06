@@ -225,11 +225,9 @@
       if (ua.match(/MicroMessenger/i) == 'micromessenger') {
         console.log('微信浏览器');
         $('.tiaozhuan').show()
-        $('.page-wrapper').hide()
-      } else {
-        $('.tiaozhuan').show()
         $('.back').show()
         $('.page-wrapper').hide()
+      } else {
         console.log("不是微信浏览器");
         let src = 'images/教育部学历证书电子注册备案表.pdf'
         var $a = document.createElement('a');
